@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "id": 1,
+      "name": "A",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 2,
+      "name": "B",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 3,
+      "name": "C",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 4,
+      "name": "D",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 5,
+      "name": "E",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 6,
+      "name": "F",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 7,
+      "name": "G",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 8,
+      "name": "H",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 9,
+      "name": "I",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 10,
+      "name": "J",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 11,
+      "name": "K",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+    {
+      "id": 12,
+      "name": "L",
+      "totalSeats": 3,
+      "emptySeats": 3
+    }
+  ]
+}
