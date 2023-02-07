@@ -33,4 +33,8 @@ export class AppComponent {
       .fill(0)
       .map((_, i) => ++i);
   }
+
+  openAssumptions() {
+    window.open('https://www.google.com');
+  }
 }
