@@ -1,0 +1,53 @@
+.card {
+  margin-top: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.displayCenterRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.seatContainer {
+  /* background-color: rgb(49, 88, 130); */
+  height: 80%;
+  margin: 30px;
+  width: 50%;
+  margin: auto;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.seatContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3px;
+}
+
+.emptySeat,
+.bookedSeat {
+  height: 30px;
+  width: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  color: #115173;
+}
+
+.emptySeat {
+  background-color: rgb(118, 238, 126);
+}
+
+.bookedSeat {
+  background-color: rgb(184, 189, 194);
+  border: 1px solid rgb(184, 189, 194);
+  color: white;
+}

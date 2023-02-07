@@ -1,3 +1,52 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" role="heading">
   <span>Ticket Booking</span>
 </mat-toolbar>
+
+<mat-card class="card" appearance="outlined">
+  <mat-card-content>Welcome !</mat-card-content>
+  <mat-form-field>
+    <mat-label>Enter Number of tickets (Max limit is 7)</mat-label>
+    <input
+      matInput
+      placeholder="Ex. 1,2....7"
+      type="number"
+      [(ngModel)]="input"
+    />
+  </mat-form-field>
+  <div class="displayCenterRow">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!input"
+      (click)="onSubmit()"
+      style="margin-right: 10px"
+    >
+      Book tickets
+    </button>
+
+    <button mat-raised-button color="primary" (click)="resetApp()">
+      Reset the app
+    </button>
+  </div>
+</mat-card>
+<div style="padding: 30px; text-align: center">
+  Greyed seats are booked, available seats are green in color
+</div>
+
+<!--eachCoachRow.emptySeats + index <= eachCoachRow.totalSeats this condition will add the bookedSeat styles to first 
+encountered seats based on the number of empty seats in a row as booking is done row-wise -->
+<div class="seatContainer">
+  <ng-container *ngFor="let eachCoachRow of coach.rows">
+    <div
+      *ngFor="let index of getArray(eachCoachRow.totalSeats)"
+      class="emptySeat"
+      [ngClass]="{
+        bookedSeat: eachCoachRow.emptySeats + index <= eachCoachRow.totalSeats
+      }"
+    >
+      {{ eachCoachRow.name + index }}
+    </div>
+  </ng-container>
+</div>
+
+<div style="padding: 30px"></div>
