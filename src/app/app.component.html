@@ -29,10 +29,14 @@
     </button>
   </div>
 </mat-card>
-<div style="padding: 30px; text-align: center">
+
+<div style="padding: 10px; text-align: center">
   Greyed seats are booked, available seats are green in color
 </div>
 
+<div style="padding: 5px; text-align: center" *ngIf="bookedTickets.length > 0">
+  You have booked:- {{ bookedTickets.join(", ") }} seats
+</div>
 <!--eachCoachRow.emptySeats + index <= eachCoachRow.totalSeats this condition will add the bookedSeat styles to first 
 encountered seats based on the number of empty seats in a row as booking is done row-wise -->
 <div class="seatContainer">

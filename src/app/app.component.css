@@ -12,12 +12,10 @@
 }
 
 .seatContainer {
-  /* background-color: rgb(49, 88, 130); */
   height: 80%;
   margin: 30px;
   width: 50%;
   margin: auto;
-  border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-content: center;
