@@ -142,6 +142,8 @@ export class AppComponent {
         return;
       }
     }
+
+    // Note code can be further optimized, by combining the nearby adjacent seats case with no nearby adjacent seats case
   };
 
   resetApp() {
