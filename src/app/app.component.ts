@@ -13,7 +13,7 @@ export class AppComponent {
   coach;
 
   bookedTickets: string[] = [];
-  error: string[] = [];
+  error: string = '';
 
   constructor() {
     this.coach = structuredClone(dbSchema);
@@ -24,14 +24,16 @@ export class AppComponent {
     console.log(this.input);
 
     let inputTickets = parseInt(this.input);
-    // if (inputTickets > 7) {
-    //   this.error = ['You can booking 7 tickets at a time.'];
-    //   return;
-    // }
-    // if (this.availableEmptySeats() < inputTickets) {
-    //   this.error = ['Seats are not available.'];
-    //   return;
-    // }
+    if (inputTickets > 7) {
+      this.error = 'You can booking 7 tickets at a time.';
+      return;
+    }
+    if (this.availableEmptySeats() < inputTickets) {
+      this.error = 'Seats are not available.';
+      return;
+    }
+    //reset error
+    this.error = '';
 
     // finding whether booking can be done in a row and booking the seats.
     for (const row of this.coach.rows) {

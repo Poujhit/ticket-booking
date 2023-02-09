@@ -38,9 +38,13 @@
   Greyed seats are booked, available seats are green in color
 </div>
 
-<div style="padding: 5px; text-align: center" *ngIf="bookedTickets.length > 0">
+<h3 style="text-align: center; color: red" *ngIf="error.length > 0">
+  {{ error }}
+</h3>
+
+<h3 style="text-align: center" *ngIf="bookedTickets.length > 0">
   You have booked:- {{ bookedTickets.join(", ") }} seats
-</div>
+</h3>
 <!--eachCoachRow.emptySeats + index <= eachCoachRow.totalSeats this condition will add the bookedSeat styles to first 
 encountered seats based on the number of empty seats in a row as booking is done row-wise -->
 <div class="seatContainer">
