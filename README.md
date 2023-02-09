@@ -25,7 +25,7 @@ In NoSQL database, the [dbSchema.json](https://github.com/Poujhit/ticket-booking
       "name": "M",
       "totalSeats": 7,
       "emptySeats": 7
-    },
+    }
 `
 
 for SQL database, one user can have multiple seats but one seat can have only one user assigned to it (one-to-many relationship).
