@@ -166,6 +166,6 @@ export class AppComponent {
   }
 
   openAssumptions() {
-    window.open('https://www.google.com');
+    window.open('https://github.com/Poujhit/ticket-booking#assumptions');
   }
 }
