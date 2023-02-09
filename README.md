@@ -1,27 +1,36 @@
-# TicketBooking
+# Ticket Booking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+Booking Algorithm -
 
-## Development server
+- There are 80 seats in a coach of a train with only 7 seats in a row and last row of only 3 seats. For
+  simplicity, there is only one coach in this train.
+- One person can reserve up to 7 seats at a time.
+- If person is reserving seats, the priority will be to book them in one row
+- If seats are not available in one row then the booking should be done in such a way that the nearby
+  seats are booked.
+- User can book as many tickets as s/he wants until the coach is full. 6. You don’t have to create login
+  functionality for this application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Assumptions
 
-## Code scaffolding
+- Booking are done row-wise from left to right always.
+- Nearby seats are those that are adjacent to a row where some of the user tickets have been booked. Seat position doesn't matter. Meaning, lets say to book 4 seats, available seats are A5,A6,A7,B6,B7. According to the assumptions, B6 and B7 are of same distance(adjacent to row A). So booking is done like this A5,A6,A7,B6.
+- If there are no adjacent seats available, booking is done by finding the rows with minimal distance between each other, and allocating the seats.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Database schema
 
-## Build
+In NoSQL database, the [dbSchema.json](https://github.com/Poujhit/ticket-booking/blob/main/src/app/db/dbSchema.json) file can be used. To add further rows in a coach, just add an object like this
+`{
+      "id": 13,
+      "name": "M",
+      "totalSeats": 7,
+      "emptySeats": 7
+    },
+`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+for SQL database, one user can have multiple seats but one seat can have only one user assigned to it (one-to-many relationship).
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We can have a table for User, containing user_id(primary key), name and tickets.
+Each ticket will have a rowname, coach number, train number and seat number.
+Each coach will have number of seats and number of row per seats, and number of rows (assuming all rows have same number of seats), coach_id
+Each train can be identified my it's train_id, all the coach_id's in it.
