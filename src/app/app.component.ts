@@ -44,7 +44,7 @@ export class AppComponent {
             (_, index) =>
               `${row.name}${row.totalSeats - inputTickets + index + 1}`
           );
-        console.log(this.bookedTickets);
+        // console.log(this.bookedTickets);
         row.emptySeats -= inputTickets;
         return;
       }
@@ -105,7 +105,7 @@ export class AppComponent {
       })
       .filter((item: any) => item.emptySeats != 0);
 
-    console.log(copyCoach);
+    // console.log(copyCoach);
     for (const row of copyCoach.rows) {
       if (row.emptySeats < inputTickets)
         this.bookedTickets.push(
