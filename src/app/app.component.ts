@@ -168,4 +168,8 @@ export class AppComponent {
   openAssumptions() {
     window.open('https://github.com/Poujhit/ticket-booking#assumptions');
   }
+
+  openAboutMe() {
+    window.open('https://poujhit.me');
+  }
 }
