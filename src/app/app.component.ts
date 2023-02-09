@@ -20,9 +20,6 @@ export class AppComponent {
   }
 
   onSubmit = () => {
-    console.log(this.coach);
-    console.log(this.input);
-
     let inputTickets = parseInt(this.input);
     if (inputTickets > 7) {
       this.error = 'You can booking 7 tickets at a time.';
@@ -51,46 +48,34 @@ export class AppComponent {
     }
 
     // booking can't be done in a row, so nearby seats should be booked, seaths which are in adjacent row with distance between them is 1
-    let nearby = false;
 
     for (const row of this.coach.rows) {
       if (row.emptySeats > 0) {
-        if (!nearby) {
-          this.bookedTickets = Array(row.emptySeats)
-            .fill(0)
-            .map(
-              (_, index) =>
-                `${row.name}${row.totalSeats - row.emptySeats + index + 1}`
-            );
-        } else {
-          // just for generating the ticket array
-          if (row.emptySeats < inputTickets)
-            this.bookedTickets.push(
-              ...Array(row.emptySeats)
-                .fill(0)
-                .map(
-                  (_, index) =>
-                    `${row.name}${row.totalSeats - row.emptySeats + index + 1}`
-                )
-            );
-          else
-            this.bookedTickets.push(
-              ...Array(inputTickets)
-                .fill(0)
-                .map(
-                  (_, index) =>
-                    `${row.name}${row.totalSeats - row.emptySeats + index + 1}`
-                )
-            );
-        }
-        nearby = true;
+        // just for generating the ticket array
+        if (row.emptySeats < inputTickets)
+          this.bookedTickets.push(
+            ...Array(row.emptySeats)
+              .fill(0)
+              .map(
+                (_, index) =>
+                  `${row.name}${row.totalSeats - row.emptySeats + index + 1}`
+              )
+          );
+        else
+          this.bookedTickets.push(
+            ...Array(inputTickets)
+              .fill(0)
+              .map(
+                (_, index) =>
+                  `${row.name}${row.totalSeats - row.emptySeats + index + 1}`
+              )
+          );
         if (row.emptySeats < inputTickets) {
           inputTickets -= row.emptySeats;
         } else {
           inputTickets = 0;
         }
         if (inputTickets === 0) {
-          // console.log(this.bookedTickets);
           // update the empty seats and then return out of the function
           this.bookedTickets.forEach((eachTicket) => {
             let index = this.coach.rows.findIndex(
@@ -102,7 +87,6 @@ export class AppComponent {
         }
       } else {
         // nearby row not found
-        nearby = false;
         this.bookedTickets = [];
         inputTickets = parseInt(this.input);
       }
