@@ -20,16 +20,16 @@ export class AppComponent {
   }
 
   onSubmit = () => {
+    //resetting the bookedTickets
+    this.bookedTickets = [];
+
     let inputTickets = parseInt(this.input);
     if (inputTickets > 7) {
       this.error = 'You can booking 7 tickets at a time.';
-      // resetting the bookedTickets Array
-      this.bookedTickets = [];
       return;
     }
     if (this.availableEmptySeats() < inputTickets) {
       this.error = 'Seats are not available.';
-      this.bookedTickets = [];
       return;
     }
     //reset error
@@ -50,8 +50,7 @@ export class AppComponent {
       }
     }
 
-    // booking can't be done in a row, so nearby seats should be booked, seaths which are in adjacent row with distance between them is 1
-
+    // booking can't be done in a row, so nearby seats should be booked, seats which are in adjacent row with distance between them is 1
     for (const row of this.coach.rows) {
       if (row.emptySeats > 0) {
         // just for generating the ticket array
@@ -89,7 +88,7 @@ export class AppComponent {
           return;
         }
       } else {
-        // nearby row not found
+        // nearby row not found so resetting
         this.bookedTickets = [];
         inputTickets = parseInt(this.input);
       }
