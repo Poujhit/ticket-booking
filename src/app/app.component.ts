@@ -23,10 +23,13 @@ export class AppComponent {
     let inputTickets = parseInt(this.input);
     if (inputTickets > 7) {
       this.error = 'You can booking 7 tickets at a time.';
+      // resetting the bookedTickets Array
+      this.bookedTickets = [];
       return;
     }
     if (this.availableEmptySeats() < inputTickets) {
       this.error = 'Seats are not available.';
+      this.bookedTickets = [];
       return;
     }
     //reset error
